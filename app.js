@@ -1,17 +1,14 @@
 const express = require("express");
-const dotenv = require ('dotenv/config');
+require("dotenv").config();
 
-
-
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  
-  res.status(200).json({message: "Welcome to the Unsplash API!"})
-})
+  res.status(200).json({ message: "Welcome to the Unsplash API!" });
+});
 
-app.listen(port, ()=> console.log(`server started on port ${port}`))
+app.listen(port, () => console.log(`server started on port ${port}`));
